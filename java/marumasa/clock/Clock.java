@@ -6,7 +6,7 @@ public final class Clock extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        new Config(this);
-        new SendMessage(this).runTaskTimer(this, 0L, 600L);
+        Config config = new Config(this);
+        new SendMessage(config).runTaskTimer(this, 0L, 600L);
     }
 }

@@ -10,7 +10,7 @@ public class Config {
     public Config(Clock plugin) {
         plugin.saveDefaultConfig();
         FileConfiguration config = plugin.getConfig();
-        Message = config.getString("Message", "時報 %d/%d/%d/%d:%d になりました");
+        Message = config.getString("Message", "時報 %d/%d/%d/%d:%s になりました");
         Minute = config.getInt("Minute", 0);
     }
 }
