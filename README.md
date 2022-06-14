@@ -1,4 +1,4 @@
-# Discord_clock_plugin
+# Minecraft_clock_plugin
 
 spigotMC
 <br>
