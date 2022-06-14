@@ -8,14 +8,14 @@ import java.util.Calendar;
 
 public class timer extends BukkitRunnable {
 
-    boolean clock = true;
+    private boolean clock = true;
 
     @Override
     public void run() {
-        Calendar calendar = Calendar.getInstance();
+        final Calendar calendar = Calendar.getInstance();
         final int MINUTE = calendar.get(Calendar.MINUTE);
 
-        final int MINUTE_SET = 0;
+        final int MINUTE_SET = new Clock().getMinute();
 
         if (MINUTE == MINUTE_SET + 1 && !clock) {
             clock = true;
@@ -30,7 +30,7 @@ public class timer extends BukkitRunnable {
             final int DAY = calendar.get(Calendar.DATE);
             final int HOUR = calendar.get(Calendar.HOUR_OF_DAY);
 
-            String text = String.format("時報 %d/%d/%d/%d:00 になりました", YEAR, MONDAY, DAY, HOUR);
+            String text = String.format(new Clock().getMessage(), YEAR, MONDAY, DAY, HOUR, MINUTE);
             Bukkit.broadcastMessage(ChatColor.YELLOW + text);
         }
     }
