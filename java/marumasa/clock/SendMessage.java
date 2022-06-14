@@ -9,13 +9,18 @@ import java.util.Calendar;
 public class SendMessage extends BukkitRunnable {
 
     private boolean clock = true;
+    private final Clock Minecraft ;
+
+    public SendMessage(Clock plugin){
+        Minecraft = plugin;
+    }
 
     @Override
     public void run() {
         final Calendar calendar = Calendar.getInstance();
         final int MINUTE = calendar.get(Calendar.MINUTE);
 
-        final int Minute = new Config().Minute;
+        final int Minute = new Config(Minecraft).Minute;
 
         if (MINUTE == Minute + 1 && !clock) {
             clock = true;
@@ -30,7 +35,7 @@ public class SendMessage extends BukkitRunnable {
             final int DAY = calendar.get(Calendar.DATE);
             final int HOUR = calendar.get(Calendar.HOUR_OF_DAY);
 
-            String text = String.format(new Config().Message, YEAR, MONDAY, DAY, HOUR, MINUTE);
+            String text = String.format(new Config(Minecraft).Message, YEAR, MONDAY, DAY, HOUR, MINUTE);
             Bukkit.broadcastMessage(ChatColor.YELLOW + text);
         }
     }
