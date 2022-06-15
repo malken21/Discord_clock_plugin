@@ -11,7 +11,7 @@ public class SendMessage extends BukkitRunnable {
     private boolean clock = true;
     private final Config config;
 
-    public SendMessage(Config data){
+    public SendMessage(Config data) {
         config = data;
     }
 
@@ -22,7 +22,7 @@ public class SendMessage extends BukkitRunnable {
 
         final int Minute = config.Minute;
 
-        if (MINUTE == Minute + 1 && !clock) {
+        if (MINUTE != Minute && !clock) {
             clock = true;
             return;
         }
