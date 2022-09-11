@@ -1,0 +1,4 @@
+name: ClockPlugin
+version: '${version}'
+main: marumasa.clock.Clock
+api-version: 1.16
